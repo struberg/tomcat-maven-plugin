@@ -725,11 +725,11 @@ public abstract class AbstractRunMojo
         }
 
         // https://issues.apache.org/jira/browse/MTOMCAT-255
-        if(context instanceof StandardContext)
+        if(context instanceof StandardContext && new File(project.getBuild().getOutputDirectory()).exists())
         { 
-            ((StandardContext) context).setAddWebinfClassesResources(true); 
-            ((StandardContext) context).setAliases( "/WEB-INF/classes=" + project.getBuild().getOutputDirectory());     
-        }         
+            ((StandardContext) context).setAddWebinfClassesResources(true);
+            ((StandardContext) context).setAliases("/WEB-INF/classes=" + project.getBuild().getOutputDirectory());
+        }
 
         return context;
 
