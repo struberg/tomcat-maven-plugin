@@ -55,7 +55,6 @@
     <it.sleep.time>2000</it.sleep.time>
     <verifier.maven.debug>false</verifier.maven.debug>
     <verifier.debugJvm>false</verifier.debugJvm>
-    <maven.resources.escapeString>\</maven.resources.escapeString>
     <distributionReleaseUrl>https://repository.apache.org/service/local/staging/deploy/maven2</distributionReleaseUrl>
 
     <distributionSnapshotsUrl>https://repository.apache.org/content/repositories/snapshots</distributionSnapshotsUrl>
@@ -73,8 +72,8 @@
     <its.ajp.port>2001</its.ajp.port>
     <!-- server port for it tests -->
     <its.server.port>2008</its.server.port>
-    <tomcat7Version>7.0.59</tomcat7Version>
-    <tomcat8Version>8.0.14</tomcat8Version>
+    <tomcat7Version>7.0.109</tomcat7Version>
+    <tomcat8Version>8.0.53</tomcat8Version>
 
     <!-- to prevent isssues with last apache parent pom -->
     <arguments />
@@ -747,7 +746,10 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.3.1</version>
+          <configuration>
+            <escapeString>\</escapeString>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -774,6 +776,7 @@
               <exclude>DEPENDENCIES</exclude>
               <exclude>README.txt</exclude>
               <exclude>*.sh</exclude>
+              <exclude>*.log</exclude>
               <exclude>.git/**</exclude>
               <exclude>.idea/**</exclude>
               <exclude>out/**</exclude>
